@@ -1,0 +1,34 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Device is already configured"
+        },
+        "error": {
+            "cannot_connect": "Failed to connect"
+        },
+        "step": {
+            "user": {
+                "data": {
+                    "host": "Host",
+                    "port": "Port"
+                },
+                "data_description": {
+                    "host": "The hostname or IP address of your EZBeq instance.",
+                    "port": "The port of your EZBeq Instance (usually 8080)."
+                },
+                "description": "Set up your EzBEQ integration",
+                "title": "Set up EzBEQ"
+            }
+        }
+    },
+    "entity": {
+        "sensor": {
+            "current_profile": {
+                "name": "Current profile",
+                "state": {
+                    "unloaded": "Unloaded"
+                }
+            }
+        }
+    }
+}
