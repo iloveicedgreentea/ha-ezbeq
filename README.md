@@ -1,14 +1,41 @@
 # ha-ezbeq
 a home assistant integration to automate EzBEQ functions
 
+## Usage
+
+Blueprint
+plex integration
+media player
+automations
 
 ## Services
 
 This exposes a service to load a profile. Point it to the right sensors
 
+You can test with the developer tools by calling the service `ezbeq.load_beq_profile`
+
+```yaml
+action: ezbeq.load_beq_profile
+data:
+  tmdb_sensor: sensor.apple_tv_tmdb_id
+  year_sensor: sensor.apple_tv_year
+  codec_sensor: sensor.apple_tv_codec
+  edition_sensor: sensor.apple_tv_edition_title
+  title_sensor: sensor.apple_tv_title
+  preferred_author: aron7awol
+  slots:
+    - 1
+  dry_run_mode: false
+  skip_search: false
+
+```
+
+`unload_beq_profile` does not need any data
 
 
 ### Load Blueprint
+
+You can add these blueprints to use in automations
 
 Load when the media player starts playing
 ```yaml
@@ -48,7 +75,6 @@ blueprint:
       selector:
         entity:
           domain: sensor
-
     title_sensor:
       name: Title Sensor
       description: Sensor that provides the title (optional)
@@ -68,5 +94,4 @@ use_blueprint:
   input:
     trigger_entity: media_player.living_room
     slots: [1, 2]
-    dry_run_mode: false
 ```

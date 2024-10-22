@@ -38,23 +38,6 @@ async def async_setup_services(
                     if "edition_sensor" in call.data
                     else ""
                 ),
-                skip_search=call.data.get("skip_search", False),
-                entry_id=(
-                    get_sensor_state(call.data["entry_id_sensor"])
-                    if "entry_id_sensor" in call.data
-                    else ""
-                ),
-                mvAdjust=(
-                    float(get_sensor_state(call.data["mv_adjust_sensor"]))
-                    if "mv_adjust_sensor" in call.data
-                    else 0.0
-                ),
-                dry_run_mode=call.data.get("dry_run_mode", False),
-                media_type=(
-                    get_sensor_state(call.data["media_type_sensor"])
-                    if "media_type_sensor" in call.data
-                    else ""
-                ),
                 slots=call.data.get("slots", [1]),
                 title=(
                     get_sensor_state(call.data["title_sensor"])
@@ -83,7 +66,6 @@ async def async_setup_services(
                 year=0,
                 codec="",
                 slots=slots,
-                dry_run_mode=call.data.get("dry_run_mode", False),
             )
             await coordinator.client.unload_beq_profile(search_request)
             _LOGGER.info("Successfully unloaded BEQ profile")
